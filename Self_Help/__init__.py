@@ -10,11 +10,11 @@ class C(BaseConstants):
 class Subsession(BaseSubsession):
     pass
 class Group(BaseGroup):
-    Plaintiff_Choice_1 = models.IntegerField(choices=[[0, '起诉'], [1, '自行维权'], [2, '和解']], initial=9, label='在本阶段，您作为被侵权者的决策为：')
-    Defendant_Choice_2 = models.IntegerField(choices=[[0, '对抗'], [1, '妥协']], initial=9, label='在这一阶段，您作为侵权者的决策为：')
-    Defendant_Choice_3 = models.IntegerField(choices=[[0, '不和解'], [1, '和解']], initial=9, label='在这一阶段，您作为侵权者的决策为：')
-    Defendant_Choice_1 = models.IntegerField(choices=[[0, '投入大量成本'], [1, '投入少量成本']], initial=9, label='在这一阶段，您作为侵权者的决策为：')
-    Plaintiff_Choice_2 = models.IntegerField(choices=[[0, '投入大量成本'], [1, '投入少量成本']], initial=9, label='在这一阶段，您作为被侵权者的决策为：')
+    Plaintiff_Choice_1 = models.IntegerField(choices=[[0, '起诉'], [1, '自行维权'], [2, '和解']], initial=99, label='在这一阶段，您作为被侵权者的决策为：')
+    Defendant_Choice_2 = models.IntegerField(choices=[[0, '对抗'], [1, '妥协']], initial=99, label='在这一阶段，您作为侵权者的决策为：')
+    Defendant_Choice_3 = models.IntegerField(choices=[[0, '不和解'], [1, '和解']], initial=99, label='在这一阶段，您作为侵权者的决策为：')
+    Defendant_Choice_1 = models.IntegerField(choices=[[0, '投入大量成本'], [1, '投入少量成本']], initial=99, label='在这一阶段，您作为侵权者的决策为：')
+    Plaintiff_Choice_2 = models.IntegerField(choices=[[0, '投入大量成本'], [1, '投入少量成本']], initial=99, label='在这一阶段，您作为被侵权者的决策为：')
 def set_payoff(group: Group):
     p1 = group.get_player_by_id(1)
     p2 = group.get_player_by_id(2)
@@ -46,12 +46,12 @@ def set_payoff(group: Group):
             p1.payoff = 800
             p2.payoff = 200
 class Player(BasePlayer):
-    Sex = models.IntegerField(choices=[[0, '女'], [1, '男'], [2, '其他']], label='您的性别为：')
+    Sex = models.IntegerField(choices=[[0, '女'], [1, '男'], [99, '其他']], label='您的性别为：')
     Age = models.IntegerField(label='您的年龄为：', max=130, min=0)
     Nation = models.StringField(label='您常居的国家为：')
-    Education = models.IntegerField(choices=[[0, '初中及以下'], [1, '高中'], [2, '本科及同等学历'], [3, '硕士及同等学历'], [4, '博士及同等学历'], [5, '其他']], label='您的受教育程度为：')
+    Education = models.IntegerField(choices=[[0, '初中及以下'], [1, '高中'], [2, '本科及同等学历'], [3, '硕士及同等学历'], [4, '博士及同等学历'], [99, '其他']], label='您的受教育程度为：')
     Law_Related = models.IntegerField(choices=[[0, '无关'], [1, '有关']], label='您的教育或工作经历是否同法学或法律事务有关？')
-    Marriage = models.IntegerField(choices=[[0, '未婚'], [1, '已婚'], [2, '离异'], [3, '丧偶'], [4, '其他']], label='您的婚姻状况为：')
+    Marriage = models.IntegerField(choices=[[0, '未婚'], [1, '已婚'], [2, '离异'], [3, '丧偶'], [99, '其他']], label='您的婚姻状况为：')
     Income = models.IntegerField(choices=[[0, '2000元以下'], [1, '2000元到4000元'], [2, '4000元到6000元'], [3, '6000元到8000元'], [4, '8000元到10000元'], [5, '10000元到12000元'], [6, '12000元到14000元'], [7, '14000元到16000元'], [8, '16000元到18000元'], [9, '18000元到20000元'], [10, '20000元以上']], label='您的月平均收入为（以人民币计）：')
     Email = models.StringField(blank=True, initial='None', label='您的电子邮箱为（非必填项）：')
 class Wait(WaitPage):
