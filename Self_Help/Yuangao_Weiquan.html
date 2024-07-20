@@ -1,0 +1,16 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}您被分配到的角色是：被侵权者{{ endblock }}
+
+{{ block content }}
+
+您被分配到的角色是：被侵权者。
+<br>
+现在，面临您被侵害的1000元财产，您需要首先决定：是否维权？如果您选择放弃维权，那么您将不会获得任何财产。如果您选择尝试和解，那么侵权者将继续决定是否接受和解。
+<br>
+<img src="{{ static 'Otree/1.jpg' }}" width="100%"/>
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}

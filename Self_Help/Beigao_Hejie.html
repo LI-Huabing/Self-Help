@@ -1,0 +1,14 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}被侵权者选择尝试和解{{ endblock }}
+
+{{ block content }}
+
+刚刚，被侵权者选择尝试和解。您是否同意？如果您同意和解，您将直接偿还800元给被侵权者，自己留下200元；当然，您也可以不同意和解，这种情况下，被侵权者可以进一步选择到法院提起诉讼或依靠自己力量维权。
+<br>
+<img src="{{ static 'Otree/2.jpg' }}" width="100%"/>
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,14 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}您选择诉讼{{ endblock }}
+
+{{ block content }}
+
+刚刚，您选择诉讼。因此，双方将互不知情地分别决定在诉讼中投入较少成本（100元）或较多成本（300元）。法院将判投入成本更大的一方胜诉，且败诉方承担双方全部诉讼成本；如果双方投入一致，则侵权者向您支付财产价值的一半（即500元），且双方各自负担自己投入的诉讼成本。
+<br>
+<img src="{{ static 'Otree/5.jpg' }}" width="100%"/>
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}

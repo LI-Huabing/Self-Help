@@ -1,0 +1,20 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}实验结果{{ endblock }}
+
+{{ block content }}
+
+在本次实验中，您的角色是{{if player.id_in_group == 1}}被侵权者{{else}}侵权者{{endif}}。
+<br>
+{{if group.Yuangao_Weiquan == 1}}在最开始，面临被侵害的1000元财产，被侵权者选择放弃维权。{{endif}}
+{{if group.Yuangao_Weiquan == 0}}在最开始，面临被侵害的1000元财产，被侵权者选择尝试和解。{{if group.Beigao_Hejie == 0}}对此，侵权者同意和解。{{endif}}{{if group.Beigao_Hejie == 1}}对此，侵权者不同意和解，因而被侵权者进一步选择{{if group.Yuangao_Erxuanyi == 0}}自行维权。面对自行维权，侵权者选择{{if group.Beigao_Zixingweiquan == 0}}妥协。{{endif}}{{if group.Beigao_Zixingweiquan == 1}}对抗。{{endif}}{{endif}}{{if group.Yuangao_Erxuanyi == 1}}诉讼。在诉讼中，被侵权者投入{{if group.Yuangao_Susong == 0}}少量成本，{{endif}}{{if group.Yuangao_Susong == 1}}大量成本，{{endif}}侵权者投入{{if group.Beigao_Susong == 0}}少量成本。{{endif}}{{if group.Beigao_Susong == 1}}大量成本。{{endif}}{{endif}}{{endif}}{{endif}}
+<br>
+因此，您最终的收益为{{player.payoff}}！您可以对照下图，回顾决策过程。
+<br>
+<img src="{{ static 'Otree/1.jpg' }}" width="100%"/>
+<br>
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}
